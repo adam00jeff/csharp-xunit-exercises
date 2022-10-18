@@ -3,15 +3,19 @@ using System.Numerics;
 
 namespace CSharpUnitTestExercises
 {
+    /// <summary>
+    ///     This class contains generic methods for number manipulation
+    /// </summary>
     public class Numbers
     {
-
-        /* 
-         * Calculate the VAT to be applied to the given value, using a VAT rate of 20%.
-         * The result should ideally rounded up to two decimal places, although
-         * you can skip this if you want
-         */
-        public decimal CalculateVAT(decimal value)
+        /// <summary>
+        /// Calculate the VAT to be applied to the given value, using a VAT rate of 20%.
+        /// The result should ideally rounded up to two decimal places, although
+        /// you can skip this if you want
+        /// </summary>
+        /// <param name="value"> The Value to calculate the VAT on</param>
+        /// <returns>The VaT for the value entered, using a rate of 20%</returns>
+            public decimal CalculateVAT(decimal value)
         {
             decimal calc = value / 100 * 20;
            decimal calc2 = decimal.Round(calc, 2);

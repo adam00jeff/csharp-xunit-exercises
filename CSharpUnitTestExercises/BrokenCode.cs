@@ -22,9 +22,10 @@ namespace CSharpUnitTestExercises
         public int SumNumbers(IEnumerable<int> numbers)
         {
             var result = 0;
+          
             foreach (int i in numbers)
             {
-                result = i;
+               result += i;
             }
             return result;
         }
@@ -48,7 +49,7 @@ namespace CSharpUnitTestExercises
                 {
                     var array = s.ToCharArray();
                     Array.Reverse(array);
-                    result.Add("s");
+                    result.Add(new string(array));
                 }
 
             }
@@ -65,8 +66,16 @@ namespace CSharpUnitTestExercises
 
             foreach (string s in input)
             {
-                var array = s.ToCharArray();
-                result.Add(new string(array));
+                if (s == null)
+                {
+                    result.Add(null);
+                }
+                else
+                {
+                    var array = s.ToCharArray();
+                    Array.Reverse(array);
+                    result.Add(new string(array));
+                }
             }
 
             return result;

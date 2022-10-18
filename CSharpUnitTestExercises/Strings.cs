@@ -18,7 +18,17 @@ namespace CSharpUnitTestExercises
         */
         public string Hello(string name)
         {
-            throw new NotImplementedException();
+            if (String.IsNullOrEmpty(name))
+            {
+                string result = "Who are you?";
+                return result;
+            }
+            else
+            {
+                string nm = name;
+                string result = "Hello " + nm + "!";
+                return result;
+            }
         }
 
         /*
@@ -29,7 +39,9 @@ namespace CSharpUnitTestExercises
         */
         public string Reverse(string input)
         {
-            throw new NotImplementedException();
+            char[] charArray = input.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
 
         /*
@@ -37,7 +49,7 @@ namespace CSharpUnitTestExercises
         */
         public string LeadingChars(string input, int n)
         {
-            throw new NotImplementedException();
+            return input.Substring(0, Math.Min(input.Length, n));
         }
 
         /*
@@ -47,7 +59,7 @@ namespace CSharpUnitTestExercises
 
         public string ReplaceVowels(string input)
         {
-            throw new NotImplementedException();
+            return new Regex(@"[aeiouAEIOU]").Replace(input, "*");
         }
 
         /*

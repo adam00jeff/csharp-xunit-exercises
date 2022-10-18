@@ -13,7 +13,9 @@ namespace CSharpUnitTestExercises
          */
         public decimal CalculateVAT(decimal value)
         {
-            throw new NotImplementedException();
+            decimal calc = value / 100 * 20;
+           decimal calc2 = decimal.Round(calc, 2);
+            return calc2;
         }
 
         /*
@@ -24,7 +26,9 @@ namespace CSharpUnitTestExercises
         */
         public double HypotenuseLength(double side1, double side2)
         {
-            throw new NotImplementedException();
+            double hypot;
+            hypot =Math.Sqrt(side1*side1 + side2*side2);
+            return hypot;
         }
 
         /* 
@@ -47,9 +51,14 @@ namespace CSharpUnitTestExercises
          *  numbers, uncomment the fib(20,000) data set from the NumbersTest
          *  test case.
         */
-        public int Fibonacci(BigInteger n)
+        public BigInteger Fibonacci(BigInteger n)
         {
-            throw new NotImplementedException();
+            if (n == 0) return 0;
+            else if (n == 1) return 1;
+            else
+            {
+                return Fibonacci(n - 1) + Fibonacci(n - 2);
+            }
         }
     }
 }

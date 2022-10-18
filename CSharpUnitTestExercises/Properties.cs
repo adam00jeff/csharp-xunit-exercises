@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace CSharpUnitTestExercises
 {
@@ -12,7 +13,7 @@ namespace CSharpUnitTestExercises
          */
         public IEnumerable<string> FirstNames(List<Person> people)
         {
-            throw new NotImplementedException();
+            return people.Select(person => person.firstName);
         }
 
         /*  Return a list containing the full names of the people in the given list
@@ -21,7 +22,7 @@ namespace CSharpUnitTestExercises
          */
         public IEnumerable<string> FullNames(List<Person> people)
         {
-            throw new NotImplementedException();
+            return people.Select(person => person.GetFullName);
         }
 
         /*  Modify the "Person.firstName" and "Person.lastName"
@@ -30,7 +31,11 @@ namespace CSharpUnitTestExercises
          */
         public void UpperCaseNames(Person person)
         {
-            throw new NotImplementedException();
+            person.firstName = person.firstName.ToUpper();
+            person.lastName = person.lastName.ToUpper();
+            return;
+           
+
         }
 
         /*  Create a list of "Person" objects with the given full names.
@@ -38,7 +43,13 @@ namespace CSharpUnitTestExercises
          */
         public List<Person> CreatePeople(string[] names)
         {
-            throw new NotImplementedException();
+            List<Person> list = new List<Person>();
+            foreach (string name in names)
+            {
+                string[] bothname = name.Split(' ');
+                list.Add(new Person { firstName = bothname[0], lastName = bothname[1] });
+             }
+            return list;
         }
 
         /* 
@@ -49,7 +60,8 @@ namespace CSharpUnitTestExercises
          */
         public IEnumerable<int> Heights(List<Person> people)
         {
-            throw new NotImplementedException();
+            return people.Select(person => person.height);
+
         }
     }
 
